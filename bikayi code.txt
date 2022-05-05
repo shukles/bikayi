@@ -1,0 +1,42 @@
+<script>
+ 
+// JavaScript implementation of the approach
+ 
+// Function to return the minimum time taken
+// by the elevator when operating optimally
+function minTime(n , k , a)
+{
+    // Sort in descending order
+    var temp;
+    for(var i = 0; i < n; i++)
+    {    
+        for(var j = i + 1; j < n; j++)
+        {
+            if(a[i] < a[j])
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }   var minTime = 0;
+ 
+    // Iterate through the groups
+    for (var i = 0; i < n; i += k)
+ 
+        // Update the time taken for each group
+        minTime += (2 * a[i]);
+ 
+    // Return the total time taken
+    return minTime;
+}
+ 
+// Driver code
+var k = 2;
+var arr = [ 2, 3, 4 ];
+var n = arr.length;
+document.write(minTime(n, k, arr));
+ 
+// This code is contributed by Amit Katiyar
+ 
+</script>
